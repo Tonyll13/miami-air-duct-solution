@@ -1,65 +1,65 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import ServiceGrid from "@/app/components/ServiceGrid";
+import Hero from "@/app/components/Hero";
+import CTA from "@/app/components/CTA";
+import GoogleReviews from "@/app/components/GoogleReviews";
+import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Air Duct Cleaning Experts in Miami",
+  description:
+    "Miami Air Duct Solution helps improve indoor air quality with air duct cleaning, dryer vent cleaning, and more across Miami and nearby areas.",
+  alternates: { canonical: "/" },
+};
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero
+        {...({ title: "Air Duct Cleaning Experts in Miami and the Metro Area", subtitle: "Professional air duct & ventilation services designed for cleaner air, better airflow, and safer homes and businesses." } as any)}
+      />
+
+      <ServiceGrid />
+
+      <section className="section">
+        <div className="container">
+          <div className="split">
+            <div className="card">
+              <div className="kicker">Why it matters</div>
+              <h2 style={{ margin: "8px 0 10px" }}>Airflow, safety, and comfort</h2>
+              <p>
+                Dust buildup, restricted vents, and neglected systems can impact performance and
+                comfort. Our approach focuses on inspection-first recommendations and clear
+                next steps.
+              </p>
+              <ul className="list">
+                <li>Clear communication and scheduling</li>
+                <li>Focus on safety and efficiency</li>
+                <li>Local service across Miami area</li>
+              </ul>
+            </div>
+            <section className="section">
+        <div className="container reviewsRow">
+          <GoogleReviews />
+          <ThumbtackCarousel />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+            <div className="card">
+              <div className="kicker">Fast contact</div>
+              <h2 style={{ margin: "8px 0 10px" }}>Call for availability</h2>
+              <p>Phone: <a href="tel:+17862757826">(786) 275-7826</a></p>
+              <p style={{ marginTop: 10 }}>
+                Prefer a message? Use the contact form and we’ll get back to you.
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <CTA
+        heading="Book your service in minutes"
+        text="Call now or send a message. We’ll confirm details and recommend the right service based on your situation."
+      />
+    </>
   );
 }
