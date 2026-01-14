@@ -44,11 +44,11 @@ export async function POST(req: Request) {
 
     const now = new Date();
     const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days
-
+const ratingMap: Record<string, number> = { ONE:1, TWO:2, THREE:3, FOUR:4, FIVE:5 };
     const rows = (j?.reviews ?? []).map((rev: any) => ({
       review_id: rev.name, // unique id
       location_name: locationName,
-      rating: rev.starRating ? Number(String(rev.starRating).replace(/\D/g, "")) : null,
+      rating: rev.starRating ? (ratingMap[String(rev.starRating)] ?? null) : null,
       comment: rev.comment ?? null,
       reviewer_name: rev.reviewer?.displayName ?? null,
       reviewer_uri: rev.reviewer?.profileUrl ?? null,
