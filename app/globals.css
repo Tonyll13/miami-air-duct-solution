@@ -1398,3 +1398,54 @@ figure.jobImage{
 .svcShowMoreBtn:hover{
   background: rgba(2,6,23,.04);
 }
+/* =========================
+   iOS FIX: Get Quote sheet height + close always visible
+   paste at VERY END
+========================= */
+
+@media (max-width: 900px){
+  .heroSheet{
+    /* יותר יציב מ-vh באייפון */
+    max-height: calc(100dvh - env(safe-area-inset-top) - 10px) !important;
+
+    /* שיהיה קצת "אוויר" מעל כדי שה-X לא ייעלם */
+    padding-top: env(safe-area-inset-top) !important;
+
+    /* אם תרצה: טיפה יותר נמוך תמיד */
+    /* max-height: calc(100dvh - env(safe-area-inset-top) - 24px) !important; */
+  }
+
+  /* ה-header (כולל X) תמיד נשאר למעלה */
+  .heroSheetHeader{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+    background: #fff !important;
+
+    /* ב-iOS לפעמים sticky צריך “דחיפה” */
+    -webkit-transform: translateZ(0);
+  }
+
+  /* הגוף נהיה אזור גלילה, לא כל המודאל */
+  .heroSheetBody{
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+
+    /* מחשב גובה לפי המסך האמיתי פחות header */
+    max-height: calc(100dvh - env(safe-area-inset-top) - 74px) !important;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* קצת להקטין את הכרטיס בתוך השיט בפלאפון */
+  .heroSheet .leadCard{
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  /* להקטין טיפה את השדות אם צריך עוד מקום */
+  .heroSheet .leadForm input,
+  .heroSheet .leadForm select,
+  .heroSheet .leadForm textarea{
+    padding: 11px 12px !important;
+  }
+}
