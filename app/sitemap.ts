@@ -18,8 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/commercial-duct-cleaning",
 
     // Locations
-    "/locations/sunny-isles-air-duct-cleaning",
-    "/locations/dania-beach-air-duct-cleaning",
+    "/locations/sunny-isles-air-duct-solution",
+    "/locations/dania-beach-air-duct-solution",
   ];
 
   const blogRoutes = [
