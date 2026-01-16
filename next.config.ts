@@ -42,19 +42,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // --- Blog / Contact ---
-      // אם יש לך דפים כאלה ב-Next, אתה לא חייב redirects,
-      // אבל זה עוזר לסגור את ה-404 של וורדפרס.
-      {
-        source: "/blog",
-        destination: "/blog",
-        permanent: true,
-      },
-      {
-        source: "/contact",
-        destination: "/contact",
-        permanent: true,
-      },
 
       // --- Short paths -> real location pages ---
       {
