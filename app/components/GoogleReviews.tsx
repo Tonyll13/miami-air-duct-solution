@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 
 type Review = {
@@ -8,6 +9,8 @@ type Review = {
   relativePublishTimeDescription?: string;
   text?: { text?: string };
 };
+const PLACE_URL =
+  "https://www.google.com/maps/place/Miami+Air+Duct+Solution/@26.0029808,-80.5910874,10z/data=!3m1!4b1!4m6!3m5!1s0x62cdeced65140bc5:0x12102545e7db4f6d!8m2!3d26.0033545!4d-80.261429!16s%2Fg%2F11yp5pcc39?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D";
 
 export default function GoogleReviews() {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -62,7 +65,7 @@ export default function GoogleReviews() {
         {/* CAROUSEL */}
         <div className="carousel">
           <div className="carouselTrack" ref={trackRef}>
-            {reviews.slice(0, 6).map((r, i) => (
+            {reviews.map((r, i) => (
               <article key={i} className="reviewCard">
                 <div className="reviewTop">
                   <div className="reviewSource">
@@ -92,13 +95,14 @@ export default function GoogleReviews() {
                 <div className="reviewFooter">
                   <span className="reviewsPill">Miami Air Duct Solution</span>
                   <a
-                    className="reviewLink"
-                    href={r.authorAttribution?.uri}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View
-                  </a>
+  className="reviewLink"
+  href={r.authorAttribution?.uri || PLACE_URL}
+  target="_blank"
+  rel="noreferrer"
+>
+  View
+</a>
+
                 </div>
               </article>
             ))}
