@@ -1449,3 +1449,213 @@ figure.jobImage{
     padding: 11px 12px !important;
   }
 }
+/* =========================
+   MOBILE: Make forms more compact (NO input font-size change)
+   paste at VERY END
+========================= */
+@media (max-width: 640px){
+
+  .leadCard{
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+
+  .leadCard h3{
+    font-size: 16px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .leadCard p{
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .leadForm{
+    gap: 8px !important;
+  }
+
+  .leadForm input,
+  .leadForm select,
+  .leadForm textarea{
+    padding: 10px 12px !important;
+    /* שומר 16px כדי למנוע iPhone zoom */
+    font-size: 16px !important;
+  }
+
+  .leadForm textarea{
+    min-height: 84px !important;
+  }
+
+  .leadForm button{
+    padding: 11px 12px !important;
+    font-size: 15px !important;
+  }
+
+  .leadFinePrint{
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+}
+/* =========================
+   SMS POPUP: compact on mobile
+========================= */
+.smsPopupPanel{
+  max-height: 85vh;
+  overflow: auto;
+  padding: 16px;
+}
+
+@media (max-width: 640px){
+  .smsPopupPanel{
+    padding: 12px !important;
+    max-height: 80vh !important;
+    border-radius: 14px !important;
+  }
+
+  .smsPopupPanel label span{
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  .smsPopupPanel input[type="checkbox"]{
+    transform: scale(0.9);
+  }
+}
+/* =========================
+   SMS Consent Popup
+   paste at VERY END of globals.css
+========================= */
+
+.smsModal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+/* Panel */
+.smsPanel{
+  width: min(720px, 100%);
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  /* prevents giant panel on short screens */
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.smsHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.smsTitle{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.smsClose{
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+}
+
+.smsDesc{
+  margin: 8px 0 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.smsRow{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.smsCheck{
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+.smsText{
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.smsActions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.smsDone{
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.smsDone:hover{
+  background: rgba(2,6,23,.04);
+}
+
+/* Mobile: smaller + more space-efficient */
+@media (max-width: 480px){
+
+  .smsModal{
+    padding: 10px;
+  }
+
+  .smsPanel{
+    padding: 12px;
+    border-radius: 12px;
+    max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 18px);
+  }
+
+  .smsTitle{
+    font-size: 16px;
+  }
+
+  .smsDesc{
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .smsRow{
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .smsCheck{
+    width: 16px;
+    height: 16px;
+  }
+
+  .smsText{
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .smsDone{
+    padding: 9px 12px;
+    border-radius: 10px;
+  }
+}
