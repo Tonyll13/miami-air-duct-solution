@@ -176,3 +176,56 @@ export function videoSchema(params: {
     publisher: { "@id": `${SITE}/#org` },
   };
 }
+export function localBusinessSchema(params?: {
+  addressLocality?: string; // "Miami"
+  addressRegion?: string;   // "FL"
+  postalCode?: string;      // אופציונלי
+  addressCountry?: string;  // "US"
+  priceRange?: string;      // "$$"
+  imagePath?: string;       // "/logo.jpeg"
+  hasMapUrl?: string;       // לינק לגוגל מפות
+}) {
+  const p = params ?? {};
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE}/#localbusiness`,
+    name: BRAND,
+    url: SITE,
+    telephone: PHONE_E164,
+
+    // ✅ SAB: כתובת "מינימלית" בלי רחוב
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: p.addressLocality ?? "Miami",
+      addressRegion: p.addressRegion ?? "FL",
+      addressCountry: p.addressCountry ?? "US",
+      ...(p.postalCode ? { postalCode: p.postalCode } : {}),
+    },
+
+    // ✅ מומלץ כדי שגוגל לא יזרוק warnings
+    image: absUrl(p.imagePath ?? "/logo.jpeg"),
+    logo: LOGO_URL,
+    priceRange: p.priceRange ?? "$$",
+
+    // ✅ SAB מתאים מאוד
+    areaServed: [
+      "Miami-Dade County, FL",
+      "Broward County, FL",
+      "Palm Beach County, FL",
+    ],
+
+    serviceType: [
+      "Air Duct Cleaning",
+      "Dryer Vent Cleaning",
+      "Chimney Sweep and Repair",
+      "Attic Insulation Services",
+      "Commercial Duct Cleaning",
+    ],
+
+    ...(p.hasMapUrl ? { hasMap: p.hasMapUrl } : {}),
+  };
+}
+
+

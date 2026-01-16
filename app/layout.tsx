@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import JsonLd from "@/app/components/JsonLd";
-import { LocalBusinessJsonLd } from "./components/SeoJsonLd";
+import { localBusinessSchema } from "@/app/lib/schema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,8 +80,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
 
-        {/* ✅ LocalBusiness (עם URL נכון) */}
-        <LocalBusinessJsonLd url={SITE_URL} />
+        <JsonLd
+  data={localBusinessSchema({
+    addressLocality: "Miami",
+    addressRegion: "FL",
+    addressCountry: "US",
+    priceRange: "$$",
+    imagePath: "/logo.jpeg",
+    hasMapUrl: "https://maps.app.goo.gl/2mmLoJWkPRfkn7kv9",
+  })}
+/>
+
+
       </body>
     </html>
   );
