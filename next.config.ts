@@ -67,13 +67,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // --- Privacy policy (עם/בלי סלש) ---
-      {
-        source: "/privacy-policy",
-        destination: "/privacy-policy",
-        permanent: true,
-      },
-
       // --- IMPORTANT ---
       // לא מוסיף redirect ל-/227-2 כי אמרת שזה טופס Twilio וצריך לעבוד.
       // אם הוא עדיין 404, זה אומר שאין route אמיתי שמחזיר 200 עבור /227-2.
