@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { FAQJsonLd } from "@/app/components/SeoJsonLd";
 import CTA from "../components/CTA";
 import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, faqSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "../components/JsonLd";
 
 export const metadata: Metadata = {
   title: "FAQ - Miami Air Duct, Dryer Vent, Chimney & Attic Insulation",
@@ -101,7 +102,21 @@ const faqs = [
 export default function FAQsPage() {
   return (
     <>
-      <FAQJsonLd items={faqs} />
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/faqs",
+    name: "FAQs",
+    description: "Answers to common questions about air duct cleaning and related services.",
+  })}
+/>
+<JsonLd data={faqSchema({ urlPath: "/faqs", questions: faqs })} />
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "FAQs", path: "/faqs" },
+  ])}
+/>
+
 
       {/* Small hero (recommended) */}
       <ServiceHeroWithForm

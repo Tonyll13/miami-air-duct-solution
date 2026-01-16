@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Do You Need Chimney Cleaning in Miami If You Rarely Use It?",
@@ -18,6 +20,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/do-you-need-chimney-cleaning-in-miami-if-you-rarely-use-it",
+    name: "Do You Need Chimney Cleaning in Miami If You Rarely Use It?",
+    description: "When chimney cleaning is still important in Miami, even if the fireplace is rarely used.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/do-you-need-chimney-cleaning-in-miami-if-you-rarely-use-it",
+    headline: "Do You Need Chimney Cleaning in Miami If You Rarely Use It?",
+    description: "When chimney cleaning is still important in Miami, even if the fireplace is rarely used.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Chimney Cleaning in Miami", path: "/blog/do-you-need-chimney-cleaning-in-miami-if-you-rarely-use-it" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Chimney Cleaning • Miami • Guide</div>

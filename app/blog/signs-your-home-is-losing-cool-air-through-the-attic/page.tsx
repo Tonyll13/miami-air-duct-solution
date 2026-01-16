@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Signs Your Home Is Losing Cool Air Through the Attic",
@@ -16,7 +18,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/signs-your-home-is-losing-cool-air-through-the-attic",
+    name: "Signs Your Home Is Losing Cool Air Through the Attic",
+    description: "Warning signs of attic air leaks and insulation issues that can raise cooling costs.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/signs-your-home-is-losing-cool-air-through-the-attic",
+    headline: "Signs Your Home Is Losing Cool Air Through the Attic",
+    description: "Warning signs of attic air leaks and insulation issues that can raise cooling costs.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Signs Your Home Is Losing Cool Air Through the Attic", path: "/blog/signs-your-home-is-losing-cool-air-through-the-attic" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Attic Insulation • Miami • Signs</div>

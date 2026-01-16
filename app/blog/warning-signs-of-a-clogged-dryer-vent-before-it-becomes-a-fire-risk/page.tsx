@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Warning Signs of a Clogged Dryer Vent (Before It Becomes a Fire Risk)",
@@ -17,7 +19,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/warning-signs-of-a-clogged-dryer-vent-before-it-becomes-a-fire-risk",
+    name: "Warning Signs of a Clogged Dryer Vent (Before It Becomes a Fire Risk)",
+    description: "Early warning signs of dryer vent clogs and why cleaning helps reduce fire risk.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/warning-signs-of-a-clogged-dryer-vent-before-it-becomes-a-fire-risk",
+    headline: "Warning Signs of a Clogged Dryer Vent (Before It Becomes a Fire Risk)",
+    description: "Early warning signs of dryer vent clogs and why cleaning helps reduce fire risk.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Warning Signs of a Clogged Dryer Vent", path: "/blog/warning-signs-of-a-clogged-dryer-vent-before-it-becomes-a-fire-risk" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Dryer Vent Cleaning • Safety • Florida</div>

@@ -4,7 +4,8 @@ import Hero from "@/app/components/Hero";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
-
+import JsonLd from "@/app/components/JsonLd";
+import { webpageSchema, breadcrumbSchema } from "@/app/lib/schema";
 export const metadata: Metadata = {
   title: "Air Duct Cleaning Experts in Miami",
   description:
@@ -15,6 +16,17 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+    <JsonLd
+        data={webpageSchema({
+          urlPath: "/",
+          name: "Miami Air Duct Solution",
+          description:
+            "Air duct cleaning, dryer vent cleaning, chimney services, attic insulation, and commercial duct cleaning in Miami and nearby areas.",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Home", path: "/" }])}
+      />
       <Hero
         {...({ title: "Air Duct Cleaning Experts in Miami and the Metro Area", subtitle: "Professional air duct & ventilation services designed for cleaner air, better airflow, and safer homes and businesses." } as any)}
       />

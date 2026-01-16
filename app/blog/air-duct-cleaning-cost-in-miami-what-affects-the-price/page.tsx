@@ -4,7 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
-
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Air Duct Cleaning Cost in Miami: What Affects the Price?",
   description:
@@ -17,6 +18,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/air-duct-cleaning-cost-in-miami-what-affects-the-price",
+    name: "Air Duct Cleaning Cost in Miami: What Affects the Price?",
+    description: "Pricing factors for air duct cleaning in Miami, what impacts cost, and what to ask before booking.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/air-duct-cleaning-cost-in-miami-what-affects-the-price",
+    headline: "Air Duct Cleaning Cost in Miami: What Affects the Price?",
+    description: "Pricing factors for air duct cleaning in Miami, what impacts cost, and what to ask before booking.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Air Duct Cleaning Cost in Miami", path: "/blog/air-duct-cleaning-cost-in-miami-what-affects-the-price" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Air Duct Cleaning • Miami • Cost Guide</div>

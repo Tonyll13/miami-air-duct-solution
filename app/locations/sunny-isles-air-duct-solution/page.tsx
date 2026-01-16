@@ -4,7 +4,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import Link from "next/link";
-
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Sunny Isles Air Duct Solution",
   description:
@@ -15,6 +16,30 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/locations/sunny-isles-air-duct-solution",
+    name: "Air Duct Cleaning in Sunny Isles Beach",
+    description: "Air duct cleaning services in Sunny Isles Beach and nearby areas.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/locations/sunny-isles-air-duct-solution",
+    name: "Air Duct Cleaning in Sunny Isles Beach",
+    serviceType: "Air Duct Cleaning",
+    areaServed: ["Sunny Isles Beach, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Sunny Isles Beach", path: "/locations/sunny-isles-air-duct-solution" },
+  ])}
+/>
+
       {/* HERO */}
       <ServiceHeroWithForm
         title="Sunny Isles Air Duct Solution"

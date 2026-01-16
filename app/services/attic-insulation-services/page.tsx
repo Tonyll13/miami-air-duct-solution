@@ -6,6 +6,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import ShowMoreGridList from "@/app/components/ShowMoreGridList";
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Attic Insulation Services",
@@ -128,7 +130,31 @@ const cities = [
 
 export default function Page() {
   return (
-    <><ServiceHeroWithForm
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/services/attic-insulation-services",
+    name: "Attic Insulation Services",
+    description: "Attic insulation services to improve comfort, reduce energy loss, and support HVAC efficiency.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/services/attic-insulation-services",
+    name: "Attic Insulation Services",
+    serviceType: "Attic Insulation",
+    description: "Attic insulation services to improve comfort, reduce energy loss, and support HVAC efficiency.",
+    areaServed: ["Miami-Dade County, FL", "Broward County, FL", "Palm Beach County, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Attic Insulation Services", path: "/services/attic-insulation-services" },
+  ])}
+/>
+<ServiceHeroWithForm
             title="Attic Insulation Services"
             description="Proper attic insulation can help stabilize indoor temperatures and reduce energy waste.
             We help you understand options based on your home’s needs."

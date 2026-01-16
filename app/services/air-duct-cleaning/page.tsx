@@ -6,7 +6,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import ShowMoreGridList from "@/app/components/ShowMoreGridList";
-
+import JsonLd from "@/app/components/JsonLd";
+import { serviceSchema, breadcrumbSchema, webpageSchema } from "@/app/lib/schema";
 export const metadata: Metadata = {
   title: "Air Duct Cleaning",
   description:
@@ -129,6 +130,30 @@ const cities = [
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/services/air-duct-cleaning",
+    name: "Air Duct Cleaning",
+    description: "Air duct cleaning in Miami to improve airflow and indoor comfort.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/services/air-duct-cleaning",
+    name: "Air Duct Cleaning",
+    description: "Air duct cleaning in Miami to improve airflow and indoor comfort.",
+    areaServed: ["Miami-Dade County, FL", "Broward County, FL", "Palm Beach County, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Air Duct Cleaning", path: "/services/air-duct-cleaning" },
+  ])}
+/>
+
       {/* HERO */}
       <ServiceHeroWithForm
         title="Air Duct Cleaning"

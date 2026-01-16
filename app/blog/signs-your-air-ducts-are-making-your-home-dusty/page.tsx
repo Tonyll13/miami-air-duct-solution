@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Signs Your Air Ducts Are Making Your Home Dusty",
@@ -17,6 +19,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/signs-your-air-ducts-are-making-your-home-dusty",
+    name: "Signs Your Air Ducts Are Making Your Home Dusty",
+    description: "Common signs of duct buildup and when a professional inspection makes sense.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/signs-your-air-ducts-are-making-your-home-dusty",
+    headline: "Signs Your Air Ducts Are Making Your Home Dusty",
+    description: "Common signs of duct buildup and when a professional inspection makes sense.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Signs Your Air Ducts Are Making Your Home Dusty", path: "/blog/signs-your-air-ducts-are-making-your-home-dusty" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Air Duct Cleaning • South Florida • Signs</div>

@@ -7,7 +7,8 @@ import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import ShowMoreGridList from "@/app/components/ShowMoreGridList";
 import ChimneyServicesSection from "@/app/components/ChimneyServicesSection";
-
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Chimney Sweep And Repair",
   description:
@@ -130,7 +131,33 @@ const cities = [
 
 export default function Page() {
   return (
-    <><ServiceHeroWithForm
+    <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/services/chimney-sweep-and-repair",
+    name: "Chimney Sweep & Repair",
+    description: "Chimney sweep and repair services for safer operation, better venting, and reduced buildup.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/services/chimney-sweep-and-repair",
+    name: "Chimney Sweep & Repair",
+    serviceType: "Chimney Cleaning",
+    description: "Chimney sweep and repair services for safer operation, better venting, and reduced buildup.",
+    areaServed: ["Miami-Dade County, FL", "Broward County, FL", "Palm Beach County, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Chimney Sweep & Repair", path: "/services/chimney-sweep-and-repair" },
+  ])}
+/>
+
+    <ServiceHeroWithForm
                 title="Chimney Sweep And Repair"
                 description="Chimney sweep and repair services. Improve safety and performance with professional cleaning and minor repairs."
                 slides={[

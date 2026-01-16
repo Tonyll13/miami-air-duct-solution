@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Post-Construction Duct Cleaning for Commercial Properties",
@@ -16,7 +18,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/post-construction-duct-cleaning-for-commercial-properties",
+    name: "Post-Construction Duct Cleaning for Commercial Properties",
+    description: "Why duct cleaning after construction matters for commercial properties and what to expect.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/post-construction-duct-cleaning-for-commercial-properties",
+    headline: "Post-Construction Duct Cleaning for Commercial Properties",
+    description: "Why duct cleaning after construction matters for commercial properties and what to expect.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Post-Construction Duct Cleaning", path: "/blog/post-construction-duct-cleaning-for-commercial-properties" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Commercial Duct Cleaning • Miami • Safety</div>

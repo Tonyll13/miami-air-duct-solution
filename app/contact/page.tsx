@@ -5,6 +5,8 @@ import ContactForm from "@/app/components/ContactForm";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtuckCarusel from "@/app/components/ThumbtackCarusel";
 import HeroForContact from "../components/HeroForContact";
+import { webpageSchema, contactPageSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Contact",
   description:
@@ -16,6 +18,21 @@ export default function ContactPage() {
   return (
     
     <Fragment>
+      <JsonLd
+  data={webpageSchema({
+    urlPath: "/contact",
+    name: "Contact",
+    description: "Contact Miami Air Duct Solution for scheduling and estimates.",
+  })}
+/>
+<JsonLd data={contactPageSchema({ urlPath: "/contact" })} />
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ])}
+/>
+
       <HeroForContact
               title="Contact Us"
               description="Get a quick quote for air duct cleaning, dryer vent cleaning, commercial duct cleaning, chimney services, and attic insulation in Miami and the Metro."

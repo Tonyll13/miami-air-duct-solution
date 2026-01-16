@@ -4,7 +4,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import Link from "next/link";
-
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Dania Beach Air Duct Solution",
   description:
@@ -15,6 +16,30 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/locations/dania-beach-air-duct-solution",
+    name: "Air Duct Cleaning in Dania Beach",
+    description: "Air duct cleaning services in Dania Beach and nearby areas.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/locations/dania-beach-air-duct-solution",
+    name: "Air Duct Cleaning in Dania Beach",
+    serviceType: "Air Duct Cleaning",
+    areaServed: ["Dania Beach, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Dania Beach", path: "/locations/dania-beach-air-duct-solution" },
+  ])}
+/>
+
       {/* HERO */}
       <ServiceHeroWithForm
         title="Dania Beach Air Duct Solution"

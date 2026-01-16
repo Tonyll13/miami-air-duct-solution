@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "How Often Should Commercial Air Ducts Be Cleaned?",
@@ -16,7 +18,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/how-often-should-commercial-air-ducts-be-cleaned",
+    name: "How Often Should Commercial Air Ducts Be Cleaned?",
+    description: "Commercial air duct cleaning frequency recommendations and factors that influence scheduling.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/how-often-should-commercial-air-ducts-be-cleaned",
+    headline: "How Often Should Commercial Air Ducts Be Cleaned?",
+    description: "Commercial air duct cleaning frequency recommendations and factors that influence scheduling.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Commercial Air Duct Cleaning Frequency", path: "/blog/how-often-should-commercial-air-ducts-be-cleaned" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Commercial Duct Cleaning • Miami • Guide</div>

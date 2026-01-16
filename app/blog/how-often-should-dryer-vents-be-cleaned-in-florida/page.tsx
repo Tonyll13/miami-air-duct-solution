@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "How Often Should Dryer Vents Be Cleaned in Florida?",
@@ -16,7 +18,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <><JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/how-often-should-dryer-vents-be-cleaned-in-florida",
+    name: "How Often Should Dryer Vents Be Cleaned in Florida?",
+    description: "Recommended dryer vent cleaning frequency in Florida and warning signs of lint buildup.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/how-often-should-dryer-vents-be-cleaned-in-florida",
+    headline: "How Often Should Dryer Vents Be Cleaned in Florida?",
+    description: "Recommended dryer vent cleaning frequency in Florida and warning signs of lint buildup.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Dryer Vent Cleaning Frequency in Florida", path: "/blog/how-often-should-dryer-vents-be-cleaned-in-florida" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Dryer Vent Cleaning • Florida • Safety Guide</div>

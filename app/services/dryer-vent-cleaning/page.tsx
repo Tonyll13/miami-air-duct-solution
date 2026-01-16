@@ -6,7 +6,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import ShowMoreGridList from "@/app/components/ShowMoreGridList";
-
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Dryer Vent Cleaning",
   description:
@@ -128,6 +129,30 @@ const cities = [
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/services/dryer-vent-cleaning",
+    name: "Dryer Vent Cleaning",
+    description: "Dryer vent cleaning to restore airflow, improve performance, and reduce fire risk.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/services/dryer-vent-cleaning",
+    name: "Dryer Vent Cleaning",
+    description: "Dryer vent cleaning to restore airflow, improve performance, and reduce fire risk.",
+    areaServed: ["Miami-Dade County, FL", "Broward County, FL", "Palm Beach County, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Dryer Vent Cleaning", path: "/services/dryer-vent-cleaning" },
+  ])}
+/>
+
       {/* HERO */}
       <ServiceHeroWithForm
         title="Dryer Vent Cleaning"

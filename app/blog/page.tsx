@@ -6,6 +6,8 @@ import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import BlogSearchClient, { BlogPost } from "@/app/components/BlogSearchClient";
+import { blogIndexSchema, webpageSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "../components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -123,6 +125,22 @@ const posts: BlogPost[] = [
 export default function BlogPage() {
   return (
     <>
+    <JsonLd data={blogIndexSchema()} />
+<JsonLd
+  data={webpageSchema({
+    urlPath: "/blog",
+    name: "Blog",
+    description: "Air quality, duct cleaning, dryer vents, insulation, and chimney tips.",
+  })}
+/>
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+  ])}
+/>
+
+
       {/* HERO */}
       <section className="serviceHero">
         <div className="serviceHeroMedia" style={{ minHeight: "52vh", position: "relative" }}>

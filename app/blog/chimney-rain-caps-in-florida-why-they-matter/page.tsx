@@ -4,7 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
-
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Chimney Rain Caps in Florida: Why They Matter",
   description:
@@ -17,6 +18,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/chimney-rain-caps-in-florida-why-they-matter",
+    name: "Chimney Rain Caps in Florida: Why They Matter",
+    description: "Why chimney rain caps matter in Florida, what they prevent, and when to install or replace them.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/chimney-rain-caps-in-florida-why-they-matter",
+    headline: "Chimney Rain Caps in Florida: Why They Matter",
+    description: "Why chimney rain caps matter in Florida, what they prevent, and when to install or replace them.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Chimney Rain Caps in Florida", path: "/blog/chimney-rain-caps-in-florida-why-they-matter" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Chimney • Florida • Safety Guide</div>

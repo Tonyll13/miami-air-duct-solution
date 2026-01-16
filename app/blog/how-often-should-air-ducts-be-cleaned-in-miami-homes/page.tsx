@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "How Often Should Air Ducts Be Cleaned in Miami Homes?",
@@ -15,6 +17,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/how-often-should-air-ducts-be-cleaned-in-miami-homes",
+    name: "How Often Should Air Ducts Be Cleaned in Miami Homes?",
+    description: "Recommended air duct cleaning frequency in Miami homes and what factors affect timing.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/how-often-should-air-ducts-be-cleaned-in-miami-homes",
+    headline: "How Often Should Air Ducts Be Cleaned in Miami Homes?",
+    description: "Recommended air duct cleaning frequency in Miami homes and what factors affect timing.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "How Often Should Air Ducts Be Cleaned in Miami Homes?", path: "/blog/how-often-should-air-ducts-be-cleaned-in-miami-homes" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Air Duct Cleaning • Miami • Guide</div>

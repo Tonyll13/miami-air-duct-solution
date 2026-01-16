@@ -4,7 +4,8 @@ import Link from "next/link";
 import CTA from "@/app/components/CTA";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
-
+import { webpageSchema, blogPostingSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Does Attic Insulation Lower Energy Bills in Miami?",
   description:
@@ -17,6 +18,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/blog/does-attic-insulation-lower-energy-bills-in-miami",
+    name: "Does Attic Insulation Lower Energy Bills in Miami?",
+    description: "How attic insulation can reduce energy loss and help lower cooling costs in Miami homes.",
+  })}
+/>
+
+<JsonLd
+  data={blogPostingSchema({
+    urlPath: "/blog/does-attic-insulation-lower-energy-bills-in-miami",
+    headline: "Does Attic Insulation Lower Energy Bills in Miami?",
+    description: "How attic insulation can reduce energy loss and help lower cooling costs in Miami homes.",
+    datePublished: "2026-01-15",
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Attic Insulation & Energy Bills", path: "/blog/does-attic-insulation-lower-energy-bills-in-miami" },
+  ])}
+/>
+
       <div className="container">
         <div className="pageHead">
           <div className="kicker">Attic Insulation • Miami • Guide</div>

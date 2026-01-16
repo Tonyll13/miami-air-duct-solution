@@ -5,7 +5,8 @@ import ServiceHeroWithForm from "@/app/components/ServiceHeroSlider";
 import GoogleReviews from "@/app/components/GoogleReviews";
 import ThumbtackCarousel from "@/app/components/ThumbtackCarusel";
 import ShowMoreGridList from "@/app/components/ShowMoreGridList";
-
+import { webpageSchema, serviceSchema, breadcrumbSchema } from "@/app/lib/schema";
+import JsonLd from "@/app/components/JsonLd";
 export const metadata: Metadata = {
   title: "Commercial Duct Cleaning",
   description:
@@ -125,6 +126,31 @@ const cities = [
 export default function Page() {
   return (
     <>
+    <JsonLd
+  data={webpageSchema({
+    urlPath: "/services/commercial-duct-cleaning",
+    name: "Commercial Duct Cleaning",
+    description: "Commercial duct cleaning services for cleaner airflow, inspections, and ongoing maintenance support.",
+  })}
+/>
+
+<JsonLd
+  data={serviceSchema({
+    urlPath: "/services/commercial-duct-cleaning",
+    name: "Commercial Duct Cleaning",
+    serviceType: "Commercial Duct Cleaning",
+    description: "Commercial duct cleaning services for cleaner airflow, inspections, and ongoing maintenance support.",
+    areaServed: ["Miami-Dade County, FL", "Broward County, FL", "Palm Beach County, FL"],
+  })}
+/>
+
+<JsonLd
+  data={breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Commercial Duct Cleaning", path: "/services/commercial-duct-cleaning" },
+  ])}
+/>
+
       {/* HERO */}
       <ServiceHeroWithForm
         title="Commercial Duct Cleaning"
